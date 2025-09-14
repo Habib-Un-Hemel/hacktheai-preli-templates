@@ -1,11 +1,11 @@
 {
-  "name": "library-api-express",
+  "name": "library-management-api",
   "version": "1.0.0",
   "description": "Library Management API for HackTheAI preliminaries",
-  "main": "server.js",
+  "main": "app.js",
   "scripts": {
-    "start": "node server.js",
-    "dev": "nodemon server.js",
+    "start": "node app.js",
+    "dev": "nodemon app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {

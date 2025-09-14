@@ -1,5 +1,5 @@
-const express = require("express");
-const bodyParser = require("body-parser");
+const express = require('express');
+const bodyParser = require('body-parser');
 
 const app = express();
 const PORT = process.env.PORT || 8000;
@@ -15,35 +15,29 @@ let borrows = [];
 let reservations = [];
 
 // Routes
-app.get("/", (req, res) => {
-  res.json({ message: "Welcome to HackTheAI Library Management API" });
+app.get('/', (req, res) => {
+  res.json({ message: 'Welcome to HackTheAI Library Management API' });
 });
 
 // Q1: Create Member
-app.post("/api/members", (req, res) => {
+app.post('/api/members', (req, res) => {
   const newMember = req.body;
-
+  
   // Validate request
   if (!newMember.member_id || !newMember.name || !newMember.age) {
-    return res
-      .status(400)
-      .json({ error: "Member ID, name, and age are required" });
+    return res.status(400).json({ error: 'Member ID, name, and age are required' });
   }
-
+  
   // Validate age
   if (newMember.age < 12) {
-    return res
-      .status(400)
-      .json({ error: "Member must be at least 12 years old" });
+    return res.status(400).json({ error: 'Member must be at least 12 years old' });
   }
-
+  
   // Check if member already exists
-  if (members.some((m) => m.member_id === newMember.member_id)) {
-    return res
-      .status(400)
-      .json({ error: "Member with this ID already exists" });
+  if (members.some(m => m.member_id === newMember.member_id)) {
+    return res.status(400).json({ error: 'Member with this ID already exists' });
   }
-
+  
   members.push(newMember);
   res.status(201).json(newMember);
 });
